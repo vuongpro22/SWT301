@@ -18,26 +18,26 @@ public class AccountServiceTest {
 //        }
 //    }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "/test-data.csv", numLinesToSkip = 1)
-    void testRegisterAccount(String username, String password, String email, boolean expected) {
-        boolean result = service.registerAccount(username, password, email);
-        assertEquals(expected, result,
-                String.format("username=%s, password=%s, email=%s", username, password, email));
-    }
-//
-//
-//
 //    @ParameterizedTest
 //    @CsvFileSource(resources = "/test-data.csv", numLinesToSkip = 1)
-//    void testIsValidPassword(String username, String password, String email, boolean expected) {
-//        boolean isValid = service.isValidPassword(password);
-//        if (password != null && password.length() > 6) {
-//            assertTrue(isValid || !expected, "Expected valid password: " + password);
-//        } else {
-//            assertFalse(isValid, "Expected invalid password: " + password);
-//        }
+//    void testRegisterAccount(String username, String password, String email, boolean expected) {
+//        boolean result = service.registerAccount(username, password, email);
+//        assertEquals(expected, result,
+//                String.format("username=%s, password=%s, email=%s", username, password, email));
 //    }
+//
+//
+//
+    @ParameterizedTest
+    @CsvFileSource(resources = "/test-data.csv", numLinesToSkip = 1)
+    void testIsValidPassword(String username, String password, String email, boolean expected) {
+        boolean isValid = service.isValidPassword(password);
+        if (password != null && password.length() > 6) {
+            assertTrue(isValid || !expected, "Expected valid password: " + password);
+        } else {
+            assertFalse(isValid, "Expected invalid password: " + password);
+        }
+    }
 //    @ParameterizedTest
 //    @CsvFileSource(resources = "/test-data.csv", numLinesToSkip = 1)
 //    void testIsValidUsername(String username, String password, String email, boolean expected) {

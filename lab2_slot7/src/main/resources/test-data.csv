@@ -1,6 +1,61 @@
-username,password,email,expected
-john123,pass123,john@example.com,true
-,pass123,john@example.com,false
-alice,short,alice@mail.com,false
-bob123,password,bobmail.com,false
-carol,password,carol@domain.com,true
+42. Admin Account Management
+BR168: Admins can view/edit user accounts.
+BR169: Reset user passwords.
+BR170: Suspend/reactivate accounts.
+
+43. Assign User Roles
+BR171: Only admins can assign roles.
+BR172: Role changes logged.
+BR173: Role permissions enforced.
+
+44. Track User Activity
+BR174: User actions are logged with timestamps.
+BR175: Data protected per privacy policy.
+BR176: Admins can generate activity reports.
+
+45. Approve Car Owner Profiles
+BR176: Owner profiles must be reviewed before approval.
+BR177: Verification documents required.
+BR178: Approval status communicated to user.
+
+46. Send System Notifications
+BR179: System notifications sent for important events.
+BR180: Notifications respect user preferences.
+BR181: Logs of sent notifications kept.
+
+47. Approve Car Listings
+BR172: Admin approval required for new car listings.
+BR173: Listings verified for completeness.
+BR174: Rejected listings notify owners with reasons.
+
+48. Remove Violating Cars
+BR175: Cars violating policies can be removed by admin.
+BR176: Removal reason logged.
+BR177: Owners notified of removal.
+
+49. Oversee Rentals
+BR178: Admins can monitor all rental activities.
+BR179: Reports available for suspicious activities.
+BR180: Admin can intervene when necessary.
+
+50. Handle Complaints
+BR181: Complaints are tracked and assigned to agents.
+BR182: Resolution process logged.
+BR183: Escalation protocol exists.
+
+51. Manage Payments
+BR184: Admins can view all payments.
+BR185: Payment disputes are handled.
+BR186: Financial reports generated.
+
+52. View Booking Statistics
+BR187: Admins can view booking stats by period.
+BR188: Stats include counts, revenue, cancellations.
+
+53. Revenue Statistics
+BR189: Revenue reports by car, owner, period.
+BR190: Deductions and fees accounted.
+
+54. Issue Statistics
+BR191: Track system issues, complaints, resolutions.
+BR192: Reports help improve platform stability.
