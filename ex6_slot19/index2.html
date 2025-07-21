@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .profile-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .success-alert {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+        .avatar-preview {
+            max-width: 150px;
+            max-height: 150px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Profile Management</h2>
+    
+    <div class="profile-section">
+        <h3>Update Profile Information</h3>
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" value="John Doe" required>
+            </div>
+            <button type="submit" id="save">Save Changes</button>
+        </form>
+    </div>
+
+    <div class="profile-section">
+        <h3>Upload Avatar</h3>
+        <form id="avatarForm">
+            <div class="form-group">
+                <label for="avatar">Choose Image:</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+            </div>
+            <img id="avatarPreview" class="avatar-preview" alt="Avatar Preview">
+        </form>
+    </div>
+
+    <div id="profile-updated" class="success-alert">
+        Profile updated successfully!
+    </div>
+
+    <script>
+        // Handle profile form submission
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            
+            // Validation rules for name
+            const isValidName = name.length > 0 && name.length <= 50 && /^[a-zA-Z\s]+$/.test(name);
+            
+            if (isValidName) {
+                document.getElementById('profile-updated').style.display = 'block';
+                
+                // Hide success message after 3 seconds
+                setTimeout(function() {
+                    document.getElementById('profile-updated').style.display = 'none';
+                }, 3000);
+            } else {
+                // Hide success message for invalid data
+                document.getElementById('profile-updated').style.display = 'none';
+            }
+        });
+
+        // Handle avatar upload preview
+        document.getElementById('avatar').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('avatarPreview');
+            
+            if (file) {
+                // Check if file is an image
+                const isImage = file.type.startsWith('image/');
+                
+                if (isImage) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                    
+                    // Show success message for valid image upload
+                    document.getElementById('profile-updated').style.display = 'block';
+                    
+                    // Hide success message after 3 seconds
+                    setTimeout(function() {
+                        document.getElementById('profile-updated').style.display = 'none';
+                    }, 3000);
+                } else {
+                    // Hide success message for non-image files
+                    document.getElementById('profile-updated').style.display = 'none';
+                    preview.style.display = 'none';
+                    alert('Please select an image file');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

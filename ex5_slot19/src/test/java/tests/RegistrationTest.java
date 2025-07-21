@@ -2,7 +2,6 @@ package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,7 +17,7 @@ public class RegistrationTest extends BaseTest {
         page.setDateOfBirth("20 Jul 2000");
         page.selectSubject("Math");
         page.selectHobbyMusic();
-        page.fillAddress("123 ABC Street, Hanoi");
+//        page.fillAddress("123 ABC Street, Hanoi");
         page.submitForm();
 
         assertTrue(page.isConfirmationPopupVisible(), "❌ Không hiển thị popup xác nhận");

@@ -6,8 +6,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
-import pages.LoginPage;
-import utils.DriverFactory;
 
 import java.time.Duration;
 
